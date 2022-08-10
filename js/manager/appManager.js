@@ -1,5 +1,6 @@
 import { PostListViewController } from "../viewControllers/postList/postListViewController.js";
 import { UserListViewController } from "../viewControllers/userList/userListViewController.js";
+import { TodoListViewController } from "../viewControllers/todoList/todoListViewController.js";
 import { ViewController } from "../viewControllers/viewController.js";
 
 export class AppManager {
@@ -7,6 +8,7 @@ export class AppManager {
         this.userSelected = null;
         this.appContainer = document.getElementById('appContainer');
         this.userListViewController = new UserListViewController(appContainer, this);
+        this.todoListViewControler = null;
         this.postListViewController = null;
     }
 
@@ -17,6 +19,7 @@ export class AppManager {
 
     showUserTodos(user) {
         this.userSelected = user;
+        this.todoListViewController = new TodoListViewController(this.appContainer, this);
     }
 
     onBackBtn(viewControllerName) {

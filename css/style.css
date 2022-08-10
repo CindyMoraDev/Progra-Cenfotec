@@ -1,8 +1,7 @@
 :root {
     --primary-color: #321911;
     --secondary-color: #5D4037;
-    --tercery-color: #22b0b5;
-    /*#8b6b61;*/
+    --tercery-color: #8b6b61;
     --content-background-color: rgb(242, 242, 242);
     --navbar-height: 60px;
     --space: 20px;
