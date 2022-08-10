@@ -1,0 +1,29 @@
+.postView_mainContainer {
+    background-color: var(--post-view-background-color);
+    margin: 5px 5px 8px 5px;
+    border-radius: 5px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.postView_title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 5px 5px 0px 5px;
+    word-wrap: break-word;
+}
+
+.postView_body {
+    font-size: var(--user-view-text-size);
+    margin: 0px 5px 0px 5px;
+    word-wrap: break-word;
+}
+
+.postView_comments {
+    font-size: var(--user-view-text-size);
+    margin: 0px 5px 0px 5px;
+    word-wrap: break-word;
+}
+
+.postView_commentsContainer {}

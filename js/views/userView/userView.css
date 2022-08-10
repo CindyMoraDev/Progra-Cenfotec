@@ -1,0 +1,70 @@
+.userView_mainContainer {
+    background-color: var(--user-view-background-color);
+    margin: 5px 5px 8px 5px;
+    border-radius: 5px;
+    height: auto;
+    display: flex;
+}
+
+.userView_col1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100px;
+}
+
+.userView_col2 {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 200px);
+    justify-content: center;
+}
+
+.userView_col3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100px;
+}
+
+.userView_avatar {
+    border-radius: 45px;
+    width: 90px;
+    height: 90px;
+    margin: 5px 0px 5px 5px;
+    border-width: 2px;
+    border-color: var(--content-background-color);
+    border-style: solid;
+}
+
+.userView_name {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 5px 5px 0px 5px;
+    word-wrap: break-word;
+}
+
+.userView_username {
+    font-size: var(--user-view-text-size);
+    margin: 0px 5px 0px 5px;
+    word-wrap: break-word;
+}
+
+.userView_email {
+    font-size: var(--user-view-text-size);
+    margin: 0px 5px 0px 5px;
+    word-wrap: break-word;
+}
+
+.userView_phone {
+    font-size: var(--user-view-text-size);
+    margin: 0px 5px 0px 5px;
+    word-wrap: break-word;
+}
+
+.userView_city {
+    font-size: var(--user-view-text-size);
+    margin: 0px 5px 10px 5px;
+    word-wrap: break-word;
+}

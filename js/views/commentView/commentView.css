@@ -1,0 +1,27 @@
+.commentView_mainContainer {
+    background-color: var(--comment-view-background-color);
+    margin: 5px 5px 8px 5px;
+    border-radius: 5px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.commentView_title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 5px 5px 0px 5px;
+    word-wrap: break-word;
+}
+
+.commentView_body {
+    font-size: var(--user-view-text-size);
+    margin: 0px 5px 0px 5px;
+    word-wrap: break-word;
+}
+
+.commentView_username {
+    font-size: var(--user-view-text-size);
+    margin: 0px 5px 0px 5px;
+    word-wrap: break-word;
+}

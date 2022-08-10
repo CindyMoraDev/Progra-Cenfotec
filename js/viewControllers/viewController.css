@@ -1,0 +1,44 @@
+.viewController {}
+
+.viewController_mainContainer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.navbarContainer {
+    position: fixed;
+    width: 100%;
+    height: var(--navbar-height);
+    background-color: var(--primary-color);
+}
+
+.contentContainer {
+    background-color: var(--content-background-color);
+    position: fixed;
+    top: var(--navbar-height);
+    width: 100%;
+    height: calc(100% - var(--navbar-height));
+    overflow: scroll;
+    user-select: none;
+}
+
+.viewController_fade {
+    background-color: var(--fade-background-color);
+    position: fixed;
+    top: var(--navbar-height);
+    width: 100%;
+    height: calc(100% - var(--navbar-height));
+    overflow: scroll;
+    user-select: none;
+    opacity: 0;
+}
+
+.contentContainer_loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+}
