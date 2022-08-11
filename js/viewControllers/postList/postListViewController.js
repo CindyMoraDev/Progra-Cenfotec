@@ -3,7 +3,6 @@ import { ViewController } from "../viewController.js";
 import { PostListService } from "./postListService.js";
 
 export class PostListViewController extends ViewController {
-
     constructor(parent, appManager) {
         super(parent, appManager);
 
@@ -14,11 +13,10 @@ export class PostListViewController extends ViewController {
 
         this.backBtn = document.createElement('div');
         this.navbarContainer.appendChild(this.backBtn);
-        this.backBtn.innerHTML = 'BACK';
+        this.backBtn.innerHTML = '&#10094';
         this.backBtn.className = 'postListViewController_navbarContainer_backBtn';
         this.backBtn.onclick = this.onBackBtn.bind(this);
         this.contentContainer.style.transform = `translateX(${window.innerWidth}.px)`;
-
 
     }
 
@@ -29,8 +27,6 @@ export class PostListViewController extends ViewController {
         });
         this.moveIn();
     }
-
-
 
     onBackBtn() {
         this.appManager.onBackBtn('postListViewController');

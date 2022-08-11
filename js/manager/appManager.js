@@ -1,7 +1,6 @@
 import { PostListViewController } from "../viewControllers/postList/postListViewController.js";
 import { UserListViewController } from "../viewControllers/userList/userListViewController.js";
 import { TodoListViewController } from "../viewControllers/todoList/todoListViewController.js";
-import { ViewController } from "../viewControllers/viewController.js";
 
 export class AppManager {
     constructor() {
@@ -30,7 +29,8 @@ export class AppManager {
             case 'postListViewController':
                 this.postListViewController.moveOut();
                 break;
-            case 'todosListViewController':
+            case 'todoListViewController':
+                this.todoListViewController.moveOut();
                 break;
             default:
                 break;

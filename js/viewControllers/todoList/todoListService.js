@@ -1,4 +1,4 @@
-import { Todo } from "../../models/todo.js";
+import { Todo } from "../../models/todo.js  ";
 import { Service } from "../service.js";
 
 export class TodoListService extends Service {
@@ -12,17 +12,11 @@ export class TodoListService extends Service {
         var request = e.target;
         var responseData = JSON.parse(request.response);
         console.log(responseData);
-        /*       for (const id in responseData) {
-                  var comments = [];
-                  var postData = responseData[id];
-                  for (const commentId in postData.comments) {
-                      const commentData = postData.comments[commentId];
-                      var comment = new Comment(commentId, commentData.body, commentData.title, commentData.user);
-                      comments.push(comment);
-                  }
-                  var post = new Post(id, postData.body, comments, postData.title);
-                  data.push(post);
-              } */
+        for (const id in responseData) {
+            var todoData = responseData[id];
+            var todo = new Todo(id, todoData.title, todoData.completed);
+            data.push(todo);
+        }
 
         this.viewController.showContent(data);
     }
