@@ -20,4 +20,17 @@ export class TodoListService extends Service {
 
         this.viewController.showContent(data);
     }
+
+    patchTodo(todo) {
+        var request = new XMLHttpRequest();
+        request.onload = this.patchTodoCompleted.bind(this);
+        request.open('PATCH', this.url);
+        request.send(JSON.stringify(todo));
+    }
+
+    patchTodoCompleted(e) {
+        var request = e.target;
+        console.log(request.response);
+
+    }
 }

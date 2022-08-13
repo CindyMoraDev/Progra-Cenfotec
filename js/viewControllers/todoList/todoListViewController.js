@@ -31,4 +31,8 @@ export class TodoListViewController extends ViewController {
         this.appManager.onBackBtn('todoListViewController');
     }
 
+    patchTodo(post) {
+        this.service.patchTodo(post, `todos/${this.appManager.userSelected.id}`);
+    }
+
 }

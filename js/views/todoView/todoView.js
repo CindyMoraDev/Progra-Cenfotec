@@ -27,6 +27,7 @@ export class TodoView extends View {
     complete() {
         this.todo.completed = !this.todo.completed;
         this.update();
+        this.appManager.patchTodo(this.todo);
     }
 
     update() {

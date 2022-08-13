@@ -36,4 +36,8 @@ export class AppManager {
                 break;
         }
     }
+
+    patchTodo(post) {
+        this.todoListViewController.patchTodo(post);
+    }
 }
