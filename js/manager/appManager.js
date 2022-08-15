@@ -1,14 +1,24 @@
 import { PostListViewController } from "../viewControllers/postList/postListViewController.js";
 import { UserListViewController } from "../viewControllers/userList/userListViewController.js";
 import { TodoListViewController } from "../viewControllers/todoList/todoListViewController.js";
+import { AddingFormViewController } from "../viewControllers/addingForm/addingFormViewController.js";
 
 export class AppManager {
+
+    static USERS = 1;
+    static POSTS = 2;
+    static TODOS = 3;
+    static COMMENTS = 4;
+    static ADDING_FORM = 5;
+
     constructor() {
         this.userSelected = null;
         this.appContainer = document.getElementById('appContainer');
         this.userListViewController = new UserListViewController(appContainer, this);
         this.todoListViewControler = null;
         this.postListViewController = null;
+        this.addingFormViewController = null;
+        this.showAddingForm();
     }
 
     showUserPosts(user) {
@@ -21,16 +31,24 @@ export class AppManager {
         this.todoListViewController = new TodoListViewController(this.appContainer, this);
     }
 
+    showAddingForm(value) {
+        this.addingFormViewController = new AddingFormViewController(this.appContainer, this, value);
+    }
+
+
     onBackBtn(viewControllerName) {
         console.log(viewControllerName);
         switch (viewControllerName) {
-            case 'userListViewController':
+            case AppManager.USERS:
                 break;
-            case 'postListViewController':
+            case AppManager.POSTS:
                 this.postListViewController.moveOut();
                 break;
-            case 'todoListViewController':
+            case AppManager.TODOS:
                 this.todoListViewController.moveOut();
+                break;
+            case AppManager.ADDING_FORM:
+                this.addingFormViewController.moveOut();
                 break;
             default:
                 break;

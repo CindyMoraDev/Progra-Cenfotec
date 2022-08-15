@@ -1,0 +1,82 @@
+.addingFormViewController {}
+
+.addingFormViewController_navbarContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+}
+
+.addingFormViewController_contentContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.addingFormViewController_formContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 90%;
+}
+
+.addingFormViewController_buttonsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.addingFormViewController_navbarContainer_backBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background-color: var(--tercery-color);
+    left: 15px;
+    color: white;
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
+}
+
+.addingFormViewController_label {
+    font-size: 13 px;
+    color: black
+}
+
+.addingFormViewController_input {
+    width: 100%;
+    height: 30px;
+    margin: 0px 0px 10px 0px;
+    text-indent: 10px;
+}
+
+.addingFormViewController_cancelBtn {
+    height: 30px;
+    width: calc(30% - 5px);
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    border-radius: 5px;
+}
+
+.addingFormViewController_okBtn {
+    height: 30px;
+    width: calc(70%);
+    background-color: var(--tercery-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: black;
+    border-radius: 5px;
+}

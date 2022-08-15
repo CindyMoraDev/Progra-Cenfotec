@@ -1,5 +1,6 @@
 import { View } from "../view.js";
 
+
 export class CommentView extends View {
     constructor(parent, comment, appManager) {
         super(parent);

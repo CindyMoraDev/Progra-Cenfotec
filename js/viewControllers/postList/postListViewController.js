@@ -1,6 +1,7 @@
 import { PostView } from "../../views/postView/postView.js";
 import { ViewController } from "../viewController.js";
 import { PostListService } from "./postListService.js";
+import { AppManager } from "../../manager/appManager.js";
 
 export class PostListViewController extends ViewController {
     constructor(parent, appManager) {
@@ -18,6 +19,12 @@ export class PostListViewController extends ViewController {
         this.backBtn.onclick = this.onBackBtn.bind(this);
         this.contentContainer.style.transform = `translateX(${window.innerWidth}.px)`;
 
+        this.newBtn = document.createElement('div');
+        this.newBtn.className = 'postListViewController_newBtn';
+        this.newBtn.innerHTML = '+';
+        this.mainContainer.appendChild(this.newBtn);
+        this.newBtn.onclick = this.onNewBtn.bind(this);
+
     }
 
     showContent(data) {
@@ -29,7 +36,12 @@ export class PostListViewController extends ViewController {
     }
 
     onBackBtn() {
-        this.appManager.onBackBtn('postListViewController');
+        this.
+        appManager.onBackBtn(AppManager.POSTS);
+    }
+
+    onNewBtn() {
+        this.appManager.showAddingForm(AppManager.POSTS);
     }
 
 }
