@@ -1,3 +1,4 @@
+import { AppManager } from "../../manager/appManager.js";
 import { Comment } from "../../models/comment.js";
 import { Post } from "../../models/post.js";
 import { Service } from "../service.js";
@@ -27,8 +28,27 @@ export class AddingFormService extends Service {
         this.viewController.showContent(data);
     }
 
-    post(data) {
+    post(data, vcType, userID) {
         console.log(data);
+        var url = this.url;
+        switch (vcType) {
+            case AppManager.TODOS:
+                url += 'todos/'
+                break;
+            case AppManager.POSTS:
+                url += 'posts/'
+                break;
+        }
+        url += userID;
+
+        var request = new XMLHttpRequest();
+        request.onload = this.postCompleted.bind(this);
+        request.open('POST', url);
+        request.send(JSON.stringify(data));
+    }
+
+    postCompleted() {
+        this.viewController.postCompleted();
     }
 
 }

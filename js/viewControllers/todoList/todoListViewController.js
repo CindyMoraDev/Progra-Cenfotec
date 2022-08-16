@@ -46,4 +46,8 @@ export class TodoListViewController extends ViewController {
         this.appManager.showAddingForm(AppManager.TODOS);
     }
 
+    refresh() {
+        this.service.download(`todos/${this.appManager.userSelected.id}`);
+    }
+
 }

@@ -7,6 +7,7 @@ export class AddingFormViewController extends ViewController {
     constructor(parent, appManager, value) {
         super(parent, appManager);
         console.log(value);
+        this.vcType = value;
         this.service = new AddingFormService(this, ``);
         this.mainContainer.classList.add('addingFormViewController');
         this.navbarContainer.classList.add('addingFormViewController_navbarContainer');
@@ -45,14 +46,16 @@ export class AddingFormViewController extends ViewController {
         this.titleIn.placeholder = 'Title';
         this.formContainer.appendChild(this.titleIn);
 
-        label = document.createElement('p');
-        label.className = 'addingFormViewController_label';
-        label.innerHTML = 'Body';
-        this.formContainer.appendChild(label);
-        this.bodyIn = document.createElement('input');
-        this.bodyIn.className = 'addingFormViewController_input';
-        this.bodyIn.placeholder = 'Body';
-        this.formContainer.appendChild(this.bodyIn);
+        if (this.vcType !== AppManager.TODOS) {
+            label = document.createElement('p');
+            label.className = 'addingFormViewController_label';
+            label.innerHTML = 'Body';
+            this.formContainer.appendChild(label);
+            this.bodyIn = document.createElement('input');
+            this.bodyIn.className = 'addingFormViewController_input';
+            this.bodyIn.placeholder = 'Body';
+            this.formContainer.appendChild(this.bodyIn);
+        }
 
         var buttonsContainer = document.createElement('div');
         buttonsContainer.className = 'addingFormViewController_buttonsContainer';
@@ -80,17 +83,28 @@ export class AddingFormViewController extends ViewController {
 
     onOKBtn() {
         var title = this.titleIn.value;
-        var body = this.bodyIn.value;
-        if (title !== '' && body !== '') {
-            this.service.post({ title: title, body: body });
-
+        if (this.vcType !== AppManager.TODOS) {
+            var body = this.bodyIn.value;
+            if (title !== '' && body !== '') {
+                this.service.post({ title: title, body: body });
+            } else {
+                console.log('Datos invalidos');
+            }
         } else {
-            console.log('Datos invalidos');
+            if (title !== '') {
+                this.service.post({ title: title }, this.vcType, this.appManager.userSelected.id);
+            } else {
+                console.log('Datos invalidos');
+            }
         }
     }
 
     onCancelBtn() {
         this.onBackBtn();
+    }
+
+    postCompleted() {
+        this.appManager.freshOnPost(this.vcType);
     }
 
 }

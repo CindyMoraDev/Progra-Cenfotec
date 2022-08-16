@@ -4,11 +4,11 @@ export class Service {
         this.url = 'https://us-central1-beehivebackend-23257.cloudfunctions.net/app/';
     }
 
-    download(value) {
-        this.url += value;
+    download(parans) {
+        var url = this.url + parans;
         var request = new XMLHttpRequest();
         request.onload = this.downloadCompleted.bind(this);
-        request.open('GET', this.url);
+        request.open('GET', url);
         request.send();
     }
 

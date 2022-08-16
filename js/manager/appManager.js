@@ -18,7 +18,7 @@ export class AppManager {
         this.todoListViewControler = null;
         this.postListViewController = null;
         this.addingFormViewController = null;
-        this.showAddingForm();
+        //this.showAddingForm();
     }
 
     showUserPosts(user) {
@@ -57,5 +57,23 @@ export class AppManager {
 
     patchTodo(post) {
         this.todoListViewController.patchTodo(post);
+    }
+
+    freshOnPost(viewControllerName) {
+        this.addingFormViewController.moveOut();
+        switch (viewControllerName) {
+            case AppManager.USERS:
+                break;
+            case AppManager.POSTS:
+                //   this.postListViewController.moveOut();
+                break;
+            case AppManager.TODOS:
+                //   this.todoListViewController.moveOut();
+                this.todoListViewController.refresh();
+                break;
+            default:
+                break;
+        }
+
     }
 }

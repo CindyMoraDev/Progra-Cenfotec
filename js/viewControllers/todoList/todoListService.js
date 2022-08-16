@@ -21,10 +21,11 @@ export class TodoListService extends Service {
         this.viewController.showContent(data);
     }
 
-    patchTodo(todo) {
+    patchTodo(todo, parans) {
+        var url = this.url + parans;
         var request = new XMLHttpRequest();
         request.onload = this.patchTodoCompleted.bind(this);
-        request.open('PATCH', this.url);
+        request.open('PATCH', url);
         request.send(JSON.stringify(todo));
     }
 
