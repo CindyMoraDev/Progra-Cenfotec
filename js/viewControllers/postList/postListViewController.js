@@ -28,6 +28,7 @@ export class PostListViewController extends ViewController {
     }
 
     showContent(data) {
+        this.contentContainer.innerHTML = '';
         super.showContent(data);
         data.forEach(post => {
             var postView = new PostView(this.contentContainer, post, this.appManager);
@@ -42,6 +43,11 @@ export class PostListViewController extends ViewController {
 
     onNewBtn() {
         this.appManager.showAddingForm(AppManager.POSTS);
+    }
+
+    refresh() {
+
+        this.service.download(`posts/${this.appManager.userSelected.id }`);
     }
 
 }

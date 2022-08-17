@@ -6,7 +6,6 @@ import { AppManager } from "../../manager/appManager.js";
 export class AddingFormViewController extends ViewController {
     constructor(parent, appManager, value) {
         super(parent, appManager);
-        console.log(value);
         this.vcType = value;
         this.service = new AddingFormService(this, ``);
         this.mainContainer.classList.add('addingFormViewController');
@@ -86,15 +85,19 @@ export class AddingFormViewController extends ViewController {
         if (this.vcType !== AppManager.TODOS) {
             var body = this.bodyIn.value;
             if (title !== '' && body !== '') {
-                this.service.post({ title: title, body: body });
+                if (this.vcType === AppManager.COMMENTS) {
+                    this.service.post({ title: title, body: body }, this.vcType, this.appManager.userSelected.id, this.appManager.postSelected.id);
+                } else if (this.vcType === AppManager.POSTS) {
+                    this.service.post({ title: title, body: body }, this.vcType, this.appManager.userSelected.id);
+                }
             } else {
-                console.log('Datos invalidos');
+                console.warn('Datos invalidos');
             }
         } else {
             if (title !== '') {
                 this.service.post({ title: title }, this.vcType, this.appManager.userSelected.id);
             } else {
-                console.log('Datos invalidos');
+                console.warn('Datos invalidos');
             }
         }
     }

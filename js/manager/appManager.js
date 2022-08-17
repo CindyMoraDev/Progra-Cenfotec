@@ -13,6 +13,7 @@ export class AppManager {
 
     constructor() {
         this.userSelected = null;
+        this.postSelected = null;
         this.appContainer = document.getElementById('appContainer');
         this.userListViewController = new UserListViewController(appContainer, this);
         this.todoListViewControler = null;
@@ -37,7 +38,6 @@ export class AppManager {
 
 
     onBackBtn(viewControllerName) {
-        console.log(viewControllerName);
         switch (viewControllerName) {
             case AppManager.USERS:
                 break;
@@ -60,15 +60,21 @@ export class AppManager {
     }
 
     freshOnPost(viewControllerName) {
+        this.postSelected = null;
         this.addingFormViewController.moveOut();
         switch (viewControllerName) {
             case AppManager.USERS:
                 break;
             case AppManager.POSTS:
-                //   this.postListViewController.moveOut();
+                this.postListViewController.refresh();
+                this.userListViewController.refresh();
+                break;
+            case AppManager.COMMENTS:
+                this.postListViewController.refresh();
                 break;
             case AppManager.TODOS:
                 //   this.todoListViewController.moveOut();
+                this.userListViewController.refresh();
                 this.todoListViewController.refresh();
                 break;
             default:

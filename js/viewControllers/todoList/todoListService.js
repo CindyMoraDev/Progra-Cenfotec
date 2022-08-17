@@ -11,7 +11,6 @@ export class TodoListService extends Service {
         var data = [];
         var request = e.target;
         var responseData = JSON.parse(request.response);
-        console.log(responseData);
         for (const id in responseData) {
             var todoData = responseData[id];
             var todo = new Todo(id, todoData.title, todoData.completed);
@@ -31,7 +30,6 @@ export class TodoListService extends Service {
 
     patchTodoCompleted(e) {
         var request = e.target;
-        console.log(request.response);
 
     }
 }

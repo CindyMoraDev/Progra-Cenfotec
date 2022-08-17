@@ -40,6 +40,7 @@ export class PostView extends View {
     }
 
     onNewBtn() {
+        this.appManager.postSelected = this.post;
         this.appManager.showAddingForm(AppManager.COMMENTS);
     }
 

@@ -15,9 +15,15 @@ export class UserListViewController extends ViewController {
 
     showContent(data) {
         super.showContent(data);
+        this.contentContainer.innerHTML = '';
         data.forEach((user) => {
             var userView = new UserView(this.contentContainer, user, this.appManager);
         });
+    }
+
+    refresh() {
+
+        this.service.download('users');
     }
 
 

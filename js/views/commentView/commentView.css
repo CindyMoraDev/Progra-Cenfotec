@@ -16,7 +16,7 @@
 
 .commentView_body {
     font-size: var(--user-view-text-size);
-    margin: 0px 5px 0px 5px;
+    margin: 0px 5px 10px 5px;
     word-wrap: break-word;
 }
 

@@ -28,8 +28,7 @@ export class AddingFormService extends Service {
         this.viewController.showContent(data);
     }
 
-    post(data, vcType, userID) {
-        console.log(data);
+    post(data, vcType, userID, postID = null) {
         var url = this.url;
         switch (vcType) {
             case AppManager.TODOS:
@@ -37,6 +36,10 @@ export class AddingFormService extends Service {
                 break;
             case AppManager.POSTS:
                 url += 'posts/'
+                break;
+            case AppManager.COMMENTS:
+                url += 'post/';
+                url += `${postID}/user/`;
                 break;
         }
         url += userID;
